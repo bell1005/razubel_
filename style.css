@@ -7,9 +7,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #fceabb, #f8b500, #ffdd94, #a18cd1, #fad0c4, #ffdde1);
-  background-size: 400% 400%;
-  animation: gradientBG 12s ease infinite;
+  background: linear-gradient(45deg, #ff0080, #ff8c00, #4cff00, #00d1ff, #8e44ad, #ff1a1a);
+  background-size: 600% 600%;
+  animation: gradientBG 8s ease infinite;
+  overflow: hidden;
 }
 
 /* 背景グラデーションのアニメーション */
@@ -18,52 +19,82 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* 顔文字の配置 */
+.emoji-container {
+  position: absolute;
+  top: 10%; /* 画面上部から少し下 */
+  left: 50%;
+  transform: translateX(-50%); /* 中央揃え */
+  font-size: 10rem; /* 絵文字を超巨大に */
+  text-align: center;
+  z-index: 10; /* 他の要素より前に表示 */
+}
+
 /* コンテンツの枠 */
 .container {
   width: 80%;
-  max-width: 400px;
-  height: 30vh; /* 画面の1/3の高さ */
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  height: 35vh;
+  background: rgba(255, 255, 255, 0.8); /* 半透明の白背景 */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
+  backdrop-filter: blur(10px);
+  border: 5px solid #fff;
 }
 
 /* 質問の文字 */
 h1 {
-  font-size: calc(1.5rem + 1vw); /* 画面サイズに応じて調整 */
+  font-size: calc(2rem + 2vw);
+  color: #ffffff;
   margin-top: 0;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  animation: textGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000; }
+  100% { text-shadow: 0 0 20px #ff8c00, 0 0 30px #ff8c00, 0 0 40px #ff8c00, 0 0 50px #ff8c00; }
 }
 
 /* ボタンのスタイル */
 .button-container {
-  margin-top: 20px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
 button {
-  width: 45%;
-  padding: 12px 0;
+  width: 48%;
+  padding: 15px 0;
   margin: 5px;
   font-size: 18px;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  background-color: #4caf50;
+  background-color: #ff5733;
   color: white;
-  transition: 0.3s;
+  transition: 0.3s ease, transform 0.2s ease-in-out;
+  box-shadow: 0 0 15px rgba(255, 87, 51, 0.7);
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #ff2a00;
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 87, 51, 1);
 }
 
 button:nth-child(2) {
-  background-color: #f44336;
+  background-color: #ff1aff;
 }
 
 button:nth-child(2):hover {
-  background-color: #e53935;
+  background-color: #d500f9;
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 26, 255, 1);
 }
 
 /* 結果表示のスタイル */
@@ -73,4 +104,11 @@ button:nth-child(2):hover {
   color: #333;
   font-weight: bold;
   display: none;
+  animation: pulse 1s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
 }
