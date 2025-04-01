@@ -29,6 +29,21 @@ body {
   font-size: 10rem; /* 絵文字を超巨大に */
   text-align: center;
   z-index: 10; /* 他の要素より前に表示 */
+  animation: emojiLeftRight 1s ease-in-out infinite alternate, emojiRotate 2s linear infinite;
+}
+
+/* 絵文字の左右に揺れるアニメーション */
+@keyframes emojiLeftRight {
+  0% { transform: translateX(-50%) translateX(-20px); }
+  50% { transform: translateX(-50%) translateX(20px); }
+  100% { transform: translateX(-50%) translateX(-20px); }
+}
+
+/* 絵文字の回転アニメーション */
+@keyframes emojiRotate {
+  0% { transform: rotate(0deg) translateX(-50%) translateY(0); }
+  50% { transform: rotate(180deg) translateX(-50%) translateY(0); }
+  100% { transform: rotate(360deg) translateX(-50%) translateY(0); }
 }
 
 /* コンテンツの枠 */
