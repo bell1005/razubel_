@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <a href="#" id="approvalLink">リンクをタップ</a>
+        <div id="messageBox" class="hidden">
+            <p>承認要求を受け取りますか？</p>
+            <button id="yesButton">はい</button>
+            <button id="noButton">いいえ</button>
+        </div>
+        <div id="responseBox" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
