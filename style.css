@@ -26,7 +26,7 @@ body {
   top: 5%; /* 画面上部から少し下 */
   left: 50%;
   transform: translateX(-50%); /* 中央揃え */
-  font-size: 13rem; /* 絵文字を超巨大に */
+  font-size: 10rem; /* 絵文字を超巨大に */
   text-align: center;
   z-index: 10; /* 他の要素より前に表示 */
 }
